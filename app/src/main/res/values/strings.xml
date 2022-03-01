@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">File Manager</string>
+    <string name="app_internal_storage_title">Internal Storage</string>
+</resources>
