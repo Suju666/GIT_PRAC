@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">File Manager</string>
     <string name="app_internal_storage_title">Internal Storage</string>
+
+    <string name="app_quick_access_title">Categories</string>
+    <string name="app_quick_access_row1_col1_btn1">Downloads</string>
+    <string name="app_quick_access_row1_col2_btn2">Images</string>
+    <string name="app_quick_access_row1_col3_btn3">Music</string>
+    <string name="app_quick_access_row2_col1_btn4">Videos</string>
+    <string name="app_quick_access_row2_col2_btn5">Documents</string>
+    <string name="app_quick_access_row2_col3_btn6">Apk</string>
 </resources>

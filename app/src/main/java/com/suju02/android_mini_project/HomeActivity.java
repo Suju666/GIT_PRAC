@@ -31,9 +31,6 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         getSupportActionBar().hide(); // hiding action bar
         check(); // calling permission method
-
-        rv = findViewById(R.id.rv); // recycler view
-
        path = Environment.getExternalStorageDirectory().getPath(); // path
     }
 

@@ -2,15 +2,17 @@ package com.suju02.android_mini_project;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -46,11 +48,11 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FileViewHold
         }
 
         if (files_mdl.getName().endsWith(".mp3") || files_mdl.getName().endsWith(".m4a")) {
-            holder.file_folder_img.setImageResource(R.drawable.colormusics);
+            holder.file_folder_img.setImageResource(R.drawable.itunes);
         }
-        else if (files_mdl.getName().endsWith(".apk")) { holder.file_folder_img.setImageResource(R.drawable.apks); }
-        else if (files_mdl.getName().endsWith(".png") || files_mdl.getName().endsWith(".jpg") || files_mdl.getName().endsWith(".jpeg")) {
-            holder.file_folder_img.setImageDrawable(null); } // PENDING JPG & PNG File
+        else if (files_mdl.getName().endsWith(".apk")) { holder.file_folder_img.setImageResource(R.drawable.img_1); }
+        else if (files_mdl.getName().endsWith(".png") || files_mdl.getName().endsWith(".jpg") || files_mdl.getName().endsWith(".jpeg"))
+        { holder.file_folder_img.setImageDrawable(null); }
         else if (files_mdl.getName().endsWith(".pdf")) { holder.file_folder_img.setImageResource(R.drawable.colorpdf); }
         else if (files_mdl.getName().endsWith(".doc") || files_mdl.getName().endsWith(".docx")) { holder.file_folder_img.setImageResource(R.drawable.word); }
         else if (files_mdl.getName().endsWith(".xlsx")) { holder.file_folder_img.setImageResource(R.drawable.excel); }
@@ -63,7 +65,6 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FileViewHold
             @Override
             public void onClick(View v) {
                 if (files_mdl.isDirectory()) {
-                HomeActivity.rv.scrollToPosition(0);
                 // fileModels.clone(); to save root file and folders recycler view after click on back button. // PENDING
                 files_mdls.clear(); // clearing arraylist
                 ShowSubFiles(files_mdl); // for sub filen and direcotry
@@ -71,13 +72,6 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FileViewHold
             }
             });
         } catch (Exception e) { Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show(); }
-
-        holder.more_vertical_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
     }
 
     @Override
@@ -85,12 +79,14 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FileViewHold
 
     public class FileViewHolder extends RecyclerView.ViewHolder {
         ImageView file_folder_img;
-        ImageButton more_vertical_btn;
         TextView file_folder_name, file_folder_info;
         View layout_for_padding;
+        ConstraintLayout ct;
+        ImageButton more_vertical_btn;
 
         public FileViewHolder(View adaptView) {
             super(adaptView);
+            ct = adaptView.findViewById(R.id.clickable_files);
             file_folder_img = adaptView.findViewById(R.id.folder_img);
             file_folder_name = adaptView.findViewById(R.id.file_folder_name);
             file_folder_info = adaptView.findViewById(R.id.file_folder_info);

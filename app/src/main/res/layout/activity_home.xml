@@ -20,42 +20,289 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv"
+    <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/white"
+        android:layout_height="5dp"
+        android:background="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_title" />
+        app:layout_constraintTop_toBottomOf="@+id/app_title"
+        app:layout_constraintBottom_toTopOf="@+id/constraint_quick_access_btns_wrapper"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_quick_access_btns_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_title">
+
+        <LinearLayout
+            android:id="@+id/linear_layout_first_row_home_screen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <ImageButton
+                    android:id="@+id/image_btn1_home_fragment"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_baseline_arrow_downward_24"
+                    app:layout_constraintBottom_toTopOf="@id/image_btn1_title_home_fragment"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/image_btn1_title_home_fragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_quick_access_row1_col1_btn1"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@id/image_btn1_home_fragment"
+                    app:layout_constraintStart_toStartOf="@id/image_btn1_home_fragment"
+                    app:layout_constraintTop_toBottomOf="@id/image_btn1_home_fragment" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:padding="5dp">
+
+                <ImageButton
+                    android:id="@+id/image_btn2_home_fragment"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:background="@color/white"
+                    android:src="@drawable/picture"
+                    app:layout_constraintBottom_toTopOf="@id/image_btn2_title_home_fragment"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/image_btn2_title_home_fragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_quick_access_row1_col2_btn2"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@id/image_btn2_home_fragment"
+                    app:layout_constraintStart_toStartOf="@id/image_btn2_home_fragment"
+                    app:layout_constraintTop_toBottomOf="@id/image_btn2_home_fragment" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:padding="5dp">
+
+                <ImageButton
+                    android:id="@+id/image_btn3_home_fragment"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:background="@color/white"
+                    android:src="@drawable/itunes"
+                    app:layout_constraintBottom_toTopOf="@id/image_btn3_title_home_fragment"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/image_btn3_title_home_fragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_quick_access_row1_col3_btn3"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@id/image_btn3_home_fragment"
+                    app:layout_constraintStart_toStartOf="@id/image_btn3_home_fragment"
+                    app:layout_constraintTop_toBottomOf="@id/image_btn3_home_fragment" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_layout_second_row_home_screen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/linear_layout_first_row_home_screen"
+            app:layout_constraintStart_toStartOf="@+id/linear_layout_first_row_home_screen"
+            app:layout_constraintTop_toBottomOf="@+id/linear_layout_first_row_home_screen">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <ImageButton
+                    android:id="@+id/image_btn4_home_fragment"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:background="@color/white"
+                    android:src="@drawable/img"
+                    app:layout_constraintBottom_toTopOf="@id/image_btn4_title_home_fragment"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/image_btn4_title_home_fragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_quick_access_row2_col1_btn4"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@id/image_btn4_home_fragment"
+                    app:layout_constraintStart_toStartOf="@id/image_btn4_home_fragment"
+                    app:layout_constraintTop_toBottomOf="@id/image_btn4_home_fragment" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:padding="5dp">
+
+                <ImageButton
+                    android:id="@+id/image_btn5_home_fragment"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:background="@color/white"
+                    android:src="@drawable/document"
+                    app:layout_constraintBottom_toTopOf="@id/image_btn5_title_home_fragment"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/image_btn5_title_home_fragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_quick_access_row2_col2_btn5"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@id/image_btn5_home_fragment"
+                    app:layout_constraintStart_toStartOf="@id/image_btn5_home_fragment"
+                    app:layout_constraintTop_toBottomOf="@id/image_btn5_home_fragment" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:padding="5dp">
+
+                <ImageButton
+                    android:id="@+id/image_btn6_home_fragment"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:background="@color/white"
+                    android:src="@drawable/img_1"
+                    app:layout_constraintBottom_toTopOf="@id/image_btn6_title_home_fragment"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/image_btn6_title_home_fragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_quick_access_row2_col3_btn6"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@id/image_btn6_home_fragment"
+                    app:layout_constraintStart_toStartOf="@id/image_btn6_home_fragment"
+                    app:layout_constraintTop_toBottomOf="@id/image_btn6_home_fragment" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toBottomOf="@+id/constraint_quick_access_btns_wrapper"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/constraint_layout_separator_between_quick_access_storage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#8F8E8E"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/internal_storage"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv">
+        android:onClick="direct_to_foldersandfiles"
+        app:layout_constraintTop_toBottomOf="@+id/constraint_layout_separator_between_quick_access_storage">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/storage"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/storage"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Internal Storage"
-                android:layout_marginLeft="15dp"
-                android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="@+id/imageView" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="Internal Storage"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

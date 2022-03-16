@@ -1,7 +1,6 @@
 package com.suju02.android_mini_project;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,7 +10,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -51,6 +49,6 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                 }
             }
-        },1000,50);
+        },1000,45);
     }
 }

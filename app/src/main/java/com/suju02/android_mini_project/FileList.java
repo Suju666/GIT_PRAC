@@ -25,7 +25,7 @@ public class FileList extends AppCompatActivity {
         getSupportActionBar().hide();
 
         rv = findViewById(R.id.internal_files_list);
-        fileArray=new ArrayList<>();
+        fileArray=new ArrayList<File>();
         filesAdapter=new FilesAdapter(this,fileArray);
         manager=new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         rv.setLayoutManager(manager);
@@ -39,14 +39,11 @@ public class FileList extends AppCompatActivity {
     public void show_files(File path)
     {
         File[] file = path.listFiles();
-
         if(file != null && file.length != 0)
         {
             for(File files : file)
             {
-                if(files.isDirectory()) { fileArray.add(files); }
-
-                if(files.isFile()) { fileArray.add(files); }
+                if(files.isDirectory() || files.isFile()) { fileArray.add(files); }
             }
         }
     }
