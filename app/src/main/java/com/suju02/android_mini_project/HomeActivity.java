@@ -4,9 +4,7 @@ import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -15,8 +13,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.widget.Toast;
-
-import java.io.File;
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
@@ -33,7 +29,6 @@ public class HomeActivity extends AppCompatActivity {
         check(); // calling permission method
        path = Environment.getExternalStorageDirectory().getPath(); // path
     }
-
 
     public void check()
     {
@@ -61,12 +56,19 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    public void redirect_to_video(View v)
+    {
+        Intent send_to_video_act = new Intent(this,list_video.class);
+        startActivity(send_to_video_act);
+    }
+
     public void direct_to_foldersandfiles(View v)
     {
         Intent intnt = new Intent(this,FileList.class);
         intnt.putExtra("path",path);
         startActivity(intnt);
     }
+
 
     /*
             arrayList_nam.clear();

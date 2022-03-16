@@ -62,14 +62,14 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FileViewHold
 
         try {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (files_mdl.isDirectory()) {
-                // fileModels.clone(); to save root file and folders recycler view after click on back button. // PENDING
-                files_mdls.clear(); // clearing arraylist
-                ShowSubFiles(files_mdl); // for sub filen and direcotry
+                @Override
+                public void onClick(View v) {
+                    if (files_mdl.isDirectory()) {
+                        // fileModels.clone(); to save root file and folders recycler view after click on back button. // PENDING
+                        files_mdls.clear(); // clearing arraylist
+                        ShowSubFiles(files_mdl); // for sub filen and direcotry
+                    }
                 }
-            }
             });
         } catch (Exception e) { Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show(); }
     }
