@@ -13,7 +13,7 @@
         android:layout_height="100dp"
         android:background="@color/white"
         android:gravity="center"
-        android:text="Videos"
+        android:text="Music"
         android:textColor="@color/red"
         android:textSize="32sp"
         android:textStyle="bold"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/video_list_home_to_list_act"
+        android:id="@+id/music_list_home_to_list_act"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

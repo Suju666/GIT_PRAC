@@ -13,6 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_Mini_Prj_File_Manager">
         <activity
+            android:name=".downlaod"
+            android:exported="false" />
+        <activity
+            android:name=".list_images"
+            android:exported="false" />
+        <activity
+            android:name=".list_music"
+            android:exported="false" />
+        <activity
             android:name=".list_documents"
             android:exported="false" />
         <activity

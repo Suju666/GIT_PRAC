@@ -9,7 +9,7 @@ import android.os.Environment;
 import java.io.File;
 import java.util.ArrayList;
 
-public class list_video extends AppCompatActivity {
+public class downlaod extends AppCompatActivity {
 
     String parent;
     File parent_path;
@@ -21,12 +21,12 @@ public class list_video extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_video);
+        setContentView(R.layout.activity_downlaod);
         getSupportActionBar().hide();
 
-        parent = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES).getPath();
+        parent = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
         parent_path = new File(parent);
-        rv = findViewById(R.id.video_list_home_to_list_act);
+        rv = findViewById(R.id.download_home_to_list_act);
         tmp1_returned=new ArrayList<File>();
         single_list = new Single_list(this,tmp1_returned);
         manager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);

@@ -35,7 +35,7 @@ public class Single_list extends RecyclerView.Adapter<Single_list.FileViewHolder
         File files_mdl = files_array.get(position);
         holder.file_folder_name.setText(files_mdl.getName());
 
-        if (files_mdl.isDirectory()) { int items = getItemCount(); holder.file_folder_info.setText(items + " Files"); }
+        if (files_mdl.isDirectory()) { int items = countItems(files_mdl); holder.file_folder_info.setText(items + " Files"); }
         else {
             SimpleDateFormat df = new SimpleDateFormat("dd MMMM yyyy");
             String filelTime = df.format(files_mdl.lastModified());
@@ -45,8 +45,8 @@ public class Single_list extends RecyclerView.Adapter<Single_list.FileViewHolder
             holder.file_folder_info.setText(filelTime + " | " + fileSize);
         }
 
-        if (files_mdl.getName().endsWith(".mp3") || files_mdl.getName().endsWith(".m4a")) {
-            holder.file_folder_img.setImageResource(R.drawable.itunes);
+        if (files_mdl.getName().endsWith(".mp3") || files_mdl.getName().endsWith(".mp4") || files_mdl.getName().endsWith(".m4a")) {
+            holder.file_folder_img.setImageResource(R.drawable.img_2);
         }
         else if (files_mdl.getName().endsWith(".apk")) { holder.file_folder_img.setImageResource(R.drawable.img_1); }
         else if (files_mdl.getName().endsWith(".png") || files_mdl.getName().endsWith(".jpg") || files_mdl.getName().endsWith(".jpeg"))
@@ -98,5 +98,11 @@ public class Single_list extends RecyclerView.Adapter<Single_list.FileViewHolder
             for (File file : files)
             { if (file.isDirectory()) { files_array.add(file); } if(file.isFile()) { files_array.add(file); } }
         }
+    }
+
+    public int countItems(File folder) { // counting files list for folder
+        int cnt = 0; File[] sub_folder_counting = folder.listFiles();
+        for (int i = 0; i < sub_folder_counting.length; i++) { cnt++; }
+        return cnt;
     }
 }

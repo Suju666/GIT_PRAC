@@ -35,7 +35,7 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FileViewHold
         File files_mdl = files_mdls.get(position);
         holder.file_folder_name.setText(files_mdl.getName());
 
-        if (files_mdl.isDirectory()) { int items = getItemCount(); holder.file_folder_info.setText(items + " Files"); }
+        if (files_mdl.isDirectory()) { int items = countItems(files_mdl); holder.file_folder_info.setText(items + " Files"); }
         else {
             SimpleDateFormat df = new SimpleDateFormat("dd MMMM yyyy");
             String filelTime = df.format(files_mdl.lastModified());
@@ -46,7 +46,7 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FileViewHold
         }
 
         if (files_mdl.getName().endsWith(".mp3") || files_mdl.getName().endsWith(".m4a")) {
-            holder.file_folder_img.setImageResource(R.drawable.itunes);
+            holder.file_folder_img.setImageResource(R.drawable.img_2);
         }
         else if (files_mdl.getName().endsWith(".apk")) { holder.file_folder_img.setImageResource(R.drawable.img_1); }
         else if (files_mdl.getName().endsWith(".png") || files_mdl.getName().endsWith(".jpg") || files_mdl.getName().endsWith(".jpeg"))
@@ -98,5 +98,11 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FileViewHold
             for (File file : files)
             { if (file.isDirectory()) { files_mdls.add(file); } if(file.isFile()) { files_mdls.add(file); } }
         }
+    }
+
+    public int countItems(File folder) { // counting files list for folder
+        int cnt = 0; File[] sub_folder_counting = folder.listFiles();
+        for (int i = 0; i < sub_folder_counting.length; i++) { cnt++; }
+        return cnt;
     }
 }

@@ -25,8 +25,8 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        getSupportActionBar().hide(); // hiding action bar
-        check(); // calling permission method
+        getSupportActionBar().hide();
+        check();
        path = Environment.getExternalStorageDirectory().getPath(); // path
     }
 
@@ -57,6 +57,24 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void redirect_to_download(View v)
+    {
+        Intent send_to_download_act = new Intent(this,downlaod.class);
+        startActivity(send_to_download_act);
+    }
+
+    public void redirect_to_images(View v)
+    {
+        Intent send_to_images_act = new Intent(this,list_images.class);
+        startActivity(send_to_images_act);
+    }
+
+    public void redirect_to_music(View v)
+    {
+        Intent send_to_music_act = new Intent(this,list_music.class);
+        startActivity(send_to_music_act);
+    }
+
+    public void redirect_to_videos(View v)
     {
         Intent send_to_video_act = new Intent(this,list_video.class);
         startActivity(send_to_video_act);
