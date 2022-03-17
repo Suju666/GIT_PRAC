@@ -1,18 +1,16 @@
-package com.suju02.android_mini_project;
+package com.suju02.android_mini_project.file_adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+import com.suju02.android_mini_project.R;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,9 +25,9 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FileViewHold
     }
 
     @Override
-    public FileViewHolder onCreateViewHolder(ViewGroup parent, int viewType) { // inflater uses context and .xml file for each item in recycler view
+    public FileViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.recycler_item, parent,false);
-        return new FileViewHolder(view); // passing view to fileviewholder constructor
+        return new FileViewHolder(view);
     }
 
     @Override
@@ -37,12 +35,12 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FileViewHold
         File files_mdl = files_mdls.get(position);
         holder.file_folder_name.setText(files_mdl.getName());
 
-        if (files_mdl.isDirectory()) { int items = countItems(files_mdl); holder.file_folder_info.setText(items + " Files"); }
+        if (files_mdl.isDirectory()) { int items = getItemCount(); holder.file_folder_info.setText(items + " Files"); }
         else {
             SimpleDateFormat df = new SimpleDateFormat("dd MMMM yyyy");
             String filelTime = df.format(files_mdl.lastModified());
 
-            long size_in_bytes = files_mdl.length(); // taking file lenth in long types
+            long size_in_bytes = files_mdl.length();
             String fileSize = android.text.format.Formatter.formatFileSize(context, size_in_bytes); // convert size in kb
             holder.file_folder_info.setText(filelTime + " | " + fileSize);
         }
@@ -65,9 +63,8 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FileViewHold
                 @Override
                 public void onClick(View v) {
                     if (files_mdl.isDirectory()) {
-                        // fileModels.clone(); to save root file and folders recycler view after click on back button. // PENDING
-                        files_mdls.clear(); // clearing arraylist
-                        ShowSubFiles(files_mdl); // for sub filen and direcotry
+                        files_mdls.clear();
+                        ShowSubFiles(files_mdl);
                     }
                 }
             });
@@ -101,11 +98,5 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FileViewHold
             for (File file : files)
             { if (file.isDirectory()) { files_mdls.add(file); } if(file.isFile()) { files_mdls.add(file); } }
         }
-    }
-
-    public int countItems(File folder) { // counting files list for folder
-        int cnt = 0; File[] sub_folder_counting = folder.listFiles();
-        for (int i = 0; i < sub_folder_counting.length; i++) { cnt++; }
-        return cnt;
     }
 }

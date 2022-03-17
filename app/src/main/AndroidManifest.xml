@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_Mini_Prj_File_Manager">
         <activity
+            android:name=".list_documents"
+            android:exported="false" />
+        <activity
             android:name=".list_video"
             android:exported="false" />
         <activity

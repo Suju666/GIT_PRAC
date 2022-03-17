@@ -56,10 +56,16 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    public void redirect_to_video(View v)
+    public void redirect_to_download(View v)
     {
         Intent send_to_video_act = new Intent(this,list_video.class);
         startActivity(send_to_video_act);
+    }
+
+    public void redirect_to_document(View v)
+    {
+        Intent send_to_document_act = new Intent(this,list_documents.class);
+        startActivity(send_to_document_act);
     }
 
     public void direct_to_foldersandfiles(View v)

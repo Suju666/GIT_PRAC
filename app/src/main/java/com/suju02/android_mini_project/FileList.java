@@ -1,6 +1,6 @@
-
 package com.suju02.android_mini_project;
 
+/*****/ import com.suju02.android_mini_project.file_adapters.FilesAdapter; /*****/ // importing filesadapter from file_adapters package.
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,6 +33,7 @@ public class FileList extends AppCompatActivity {
 
         mpath = getIntent().getStringExtra("path");
         fpath = new File(mpath);
+
         show_files(fpath);
     }
 

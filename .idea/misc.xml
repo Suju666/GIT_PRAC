@@ -16,11 +16,13 @@
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/activity_file_list.xml" value="0.264" />
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/activity_home.xml" value="0.264" />
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/activity_home_screen.xml" value="0.176" />
+        <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/activity_list_documents.xml" value="0.264" />
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/activity_list_video.xml" value="0.24375" />
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/home_screen.xml" value="0.24375" />
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/recycle_my_home_recycler.xml" value="0.264" />
-        <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/recycler_item.xml" value="0.24375" />
+        <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/recycler_item.xml" value="1.0" />
+        <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/single_list_front.xml" value="1.0" />
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/menu/onclcik3dothfilelist.xml" value="0.24375" />
       </map>
     </option>
