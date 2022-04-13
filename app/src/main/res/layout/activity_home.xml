@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/main_background"
     tools:context=".HomeActivity">
 
     <TextView
@@ -58,7 +58,7 @@
                     android:id="@+id/image_btn1_home_fragment"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:background="@color/white"
+                    android:background="@drawable/bg_icon"
                     android:onClick="redirect_to_download"
                     android:src="@drawable/img_3"
                     app:layout_constraintBottom_toTopOf="@id/image_btn1_title_home_fragment"
@@ -90,7 +90,7 @@
                     android:id="@+id/image_btn2_home_fragment"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:background="@color/white"
+                    android:background="@drawable/bg_icon"
                     android:onClick="redirect_to_images"
                     android:src="@drawable/picture"
                     app:layout_constraintBottom_toTopOf="@id/image_btn2_title_home_fragment"
@@ -122,7 +122,7 @@
                     android:id="@+id/image_btn3_home_fragment"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:background="@color/white"
+                    android:background="@drawable/bg_icon"
                     android:onClick="redirect_to_music"
                     android:src="@drawable/img_2"
                     app:layout_constraintBottom_toTopOf="@id/image_btn3_title_home_fragment"
@@ -166,7 +166,7 @@
                     android:id="@+id/image_btn4_home_fragment"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:background="@color/white"
+                    android:background="@drawable/bg_icon"
                     android:onClick="redirect_to_videos"
                     android:src="@drawable/img"
                     app:layout_constraintBottom_toTopOf="@id/image_btn4_title_home_fragment"
@@ -198,7 +198,7 @@
                     android:id="@+id/image_btn5_home_fragment"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:background="@color/white"
+                    android:background="@drawable/bg_icon"
                     android:src="@drawable/document"
                     android:onClick="redirect_to_document"
                     app:layout_constraintBottom_toTopOf="@id/image_btn5_title_home_fragment"
@@ -230,8 +230,9 @@
                     android:id="@+id/image_btn6_home_fragment"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:background="@color/white"
+                    android:background="@drawable/bg_icon"
                     android:src="@drawable/img_1"
+                    android:onClick="redirect_to_apk"
                     app:layout_constraintBottom_toTopOf="@id/image_btn6_title_home_fragment"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -278,36 +279,96 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/internal_storage"
+        android:id="@+id/internal_storage_wrapper"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:onClick="direct_to_foldersandfiles"
         app:layout_constraintTop_toBottomOf="@+id/constraint_layout_separator_between_quick_access_storage">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/storage"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/internal_storage"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:text="Internal Storage"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/imageView" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/storage"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="Internal Storage"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/bg_icon"
+        android:layout_margin="5dp"
+        android:onClick="direct_to_foldersandfiles_external"
+        app:layout_constraintTop_toBottomOf="@id/internal_storage_wrapper"
+        app:layout_constraintStart_toStartOf="@id/internal_storage_wrapper"
+        app:layout_constraintEnd_toEndOf="@+id/internal_storage_wrapper">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_baseline_sd_storage_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="External Storage"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

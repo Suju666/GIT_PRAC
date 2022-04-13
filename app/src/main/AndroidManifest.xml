@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_Mini_Prj_File_Manager">
         <activity
+            android:name=".list_apks"
+            android:exported="false" />
+        <activity
             android:name=".downlaod"
             android:exported="false" />
         <activity
@@ -31,10 +34,10 @@
             android:name=".FileList"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

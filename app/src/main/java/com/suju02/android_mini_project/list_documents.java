@@ -24,7 +24,7 @@ public class list_documents extends AppCompatActivity {
         setContentView(R.layout.activity_list_documents);
         getSupportActionBar().hide();
 
-        parent = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getPath();
+        parent = Environment.getExternalStorageDirectory().getPath();
         documnet_parent = new File(parent);
         rv = findViewById(R.id.document_list_home_to_list_act);
         doc_arr = new ArrayList<>();
@@ -38,7 +38,19 @@ public class list_documents extends AppCompatActivity {
     public void show_files(File file)
     {
         File[] File = file.listFiles();
-        if(File != null && File.length != 0)
-        { for(File Files : File) { if(Files.isFile() || Files.isDirectory()) { doc_arr.add(Files); } } }
+        if(File != null)
+        {
+            for(File Files : File) { if((Files.isFile()) && (Files.getName().toLowerCase().endsWith(".pdf") || Files.getName().toLowerCase().endsWith(".doc") || Files.getName().toLowerCase().endsWith(".docx") || Files.getName().toLowerCase().endsWith(".ppt") || Files.getName().toLowerCase().endsWith(".pptx") || Files.getName().toLowerCase().endsWith(".exls") || Files.getName().toLowerCase().endsWith(".csv"))) { doc_arr.add(Files); }
+            if (Files.isDirectory()) { get_sub_dir_f(Files); } }
+        }
+    }
+
+    public void get_sub_dir_f(File file)
+    {
+        File[] Files = file.listFiles();
+        if(Files != null)
+        {
+            for(File File : Files) { if(File.isDirectory()) { show_files(File); } else if((File.isFile()) && (File.getName().toLowerCase().endsWith(".pdf") || File.getName().toLowerCase().endsWith(".doc") || File.getName().toLowerCase().endsWith(".docx") || File.getName().toLowerCase().endsWith(".ppt") || File.getName().toLowerCase().endsWith(".pptx") || File.getName().toLowerCase().endsWith(".exls") || File.getName().toLowerCase().endsWith(".csv"))) { doc_arr.add(File); } }
+        }
     }
 }

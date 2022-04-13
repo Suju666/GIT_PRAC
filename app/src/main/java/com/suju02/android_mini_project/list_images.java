@@ -27,7 +27,7 @@ public class list_images extends AppCompatActivity {
         setContentView(R.layout.activity_list_images);
         getSupportActionBar().hide();
 
-        parent = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath();
+        parent = Environment.getExternalStorageDirectory().getPath();
         imgs_parent = new File(parent);
         rv = findViewById(R.id.image_list_home_to_list_act);
         imgs_arr = new ArrayList<File>();
@@ -41,7 +41,14 @@ public class list_images extends AppCompatActivity {
     public void show_files(File file)
     {
         File[] File = file.listFiles();
-        if(File != null && File.length != 0)
-        { for(File Files : File) { if(Files.isFile() || Files.isDirectory()) { imgs_arr.add(Files); } } }
+        if(File != null)
+        { for(File Files : File) { if((Files.isFile()) && (Files.getName().toLowerCase().endsWith(".jpg") || Files.getName().toLowerCase().endsWith(".jpeg") || Files.getName().toLowerCase().endsWith(".png"))) { imgs_arr.add(Files); } if(Files.isDirectory()) { get_sub_dir_files(Files); } } }
+    }
+
+    public void get_sub_dir_files(File file)
+    {
+        File[] File = file.listFiles();
+        if(File != null)
+        { for(File Files : File) { if(Files.isDirectory()) { show_files(Files); } else if(Files.isFile() && (Files.getName().toLowerCase().endsWith(".jpg") || Files.getName().toLowerCase().endsWith(".jpeg") || Files.getName().toLowerCase().endsWith(".png"))) { imgs_arr.add(Files); } } }
     }
 }

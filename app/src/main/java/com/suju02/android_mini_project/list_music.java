@@ -12,7 +12,6 @@ import java.util.ArrayList;
 public class list_music extends AppCompatActivity {
 
     Single_list single_list;
-    String parent;
     File music_parent;
     RecyclerView rv;
     LinearLayoutManager manager;
@@ -24,8 +23,7 @@ public class list_music extends AppCompatActivity {
         setContentView(R.layout.activity_list_music);
         getSupportActionBar().hide();
 
-        parent = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).getPath();
-        music_parent = new File(parent);
+        music_parent = new File(Environment.getExternalStorageDirectory().getPath());
         rv = findViewById(R.id.music_list_home_to_list_act);
         music_arr = new ArrayList<File>();
         single_list = new Single_list(this,music_arr);
@@ -35,10 +33,21 @@ public class list_music extends AppCompatActivity {
         show_files(music_parent);
     }
 
-    public void show_files(File file)
+    public void show_files(File tmp)
     {
-        File[] File = file.listFiles();
-        if(File != null && File.length != 0)
-        { for(File Files : File) { if(Files.isFile() || Files.isDirectory()) { music_arr.add(Files); } } }
+        File[] files = tmp.listFiles();
+        if(files != null)
+        {
+            for(File file : files) { if((file.isFile()) && (file.getName().toLowerCase().endsWith(".mp3") || file.getName().toLowerCase().endsWith(".m4a"))) { music_arr.add(file); } if(file.isDirectory()) { getsub(file); } }
+        }
+    }
+
+    public void getsub(File tmp)
+    {
+        File[] files = tmp.listFiles();
+        if(files != null)
+        {
+            for(File file : files) { if(file.isDirectory()) { show_files(file); } else if((file.isFile()) && (file.getName().toLowerCase().endsWith(".mp3") || file.getName().toLowerCase().endsWith(".m4a"))) { music_arr.add(file); } }
+        }
     }
 }

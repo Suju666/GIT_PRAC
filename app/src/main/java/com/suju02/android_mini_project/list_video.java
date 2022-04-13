@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public class list_video extends AppCompatActivity {
 
-    String parent;
     File parent_path;
     Single_list single_list;
     ArrayList<File> tmp1_returned;
@@ -24,8 +23,7 @@ public class list_video extends AppCompatActivity {
         setContentView(R.layout.activity_list_video);
         getSupportActionBar().hide();
 
-        parent = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES).getPath();
-        parent_path = new File(parent);
+        parent_path = new File(Environment.getExternalStorageDirectory().getPath());
         rv = findViewById(R.id.video_list_home_to_list_act);
         tmp1_returned=new ArrayList<File>();
         single_list = new Single_list(this,tmp1_returned);
@@ -35,10 +33,17 @@ public class list_video extends AppCompatActivity {
         show_files(parent_path);
     }
 
-    public void show_files(File path)
+    public void show_files(File file)
     {
-        File[] file = path.listFiles();
-        if(file != null && file.length != 0)
-        { for(File files : file) { if (files.isDirectory() || files.isFile()) { tmp1_returned.add(files); } } }
+        File[] File = file.listFiles();
+        if(File != null)
+        { for(File Files : File) { if((Files.isFile()) && (Files.getName().toLowerCase().endsWith(".mp4") || Files.getName().toLowerCase().endsWith(".mkv"))) { tmp1_returned.add(Files); } if(Files.isDirectory()) { get_sub_dir_files(Files); } } }
+    }
+
+    public void get_sub_dir_files(File file)
+    {
+        File[] File = file.listFiles();
+        if(File != null)
+        { for(File Files : File) { if(Files.isDirectory()) { show_files(Files); } else if(Files.isFile() && (Files.getName().toLowerCase().endsWith(".mkv") || Files.getName().toLowerCase().endsWith(".mp4"))) { tmp1_returned.add(Files); } } }
     }
 }

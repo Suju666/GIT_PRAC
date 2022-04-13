@@ -13,12 +13,13 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
 
     public static RecyclerView rv;
-    String path;
+    public static String path, ex_path;
     public static ArrayList<String> arrayList_nam;
 
     @Override
@@ -27,7 +28,8 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         getSupportActionBar().hide();
         check();
-       path = Environment.getExternalStorageDirectory().getPath(); // path
+       path = Environment.getExternalStorageDirectory().getPath();
+       ex_path = System.getenv("EXTERNAL_STORAGE");
     }
 
     public void check()
@@ -86,6 +88,12 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(send_to_document_act);
     }
 
+    public void redirect_to_apk(View v)
+    {
+        Intent send_to_apks_act = new Intent(this,list_apks.class);
+        startActivity(send_to_apks_act);
+    }
+
     public void direct_to_foldersandfiles(View v)
     {
         Intent intnt = new Intent(this,FileList.class);
@@ -93,18 +101,10 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intnt);
     }
 
-
-    /*
-            arrayList_nam.clear();
-        File files[] = path.listFiles();
-
-        if (files != null) {
-            for (File file : files) {
-                if (file.isDirectory()) { arrayList_nam.add(file); }
-            }
-            for (File file : files) {
-                if (!file.isDirectory()) { arrayList_nam.add(0, file); }
-            }
-        }
-     */
+    public void direct_to_foldersandfiles_external(View v)
+    {
+        Intent intnt = new Intent(this,FileList.class);
+        intnt.putExtra("path",ex_path);
+        startActivity(intnt);
+    }
 }
