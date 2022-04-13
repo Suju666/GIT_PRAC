@@ -7,6 +7,8 @@ Enrollment No :: 196120316002
 
 Name :: Sujal Balar
 
+***** Android Version 10 required for copy and paste function *****
+
 ***** Images *****
 
 1. Home Screen
