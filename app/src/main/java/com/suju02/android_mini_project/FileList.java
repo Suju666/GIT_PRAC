@@ -132,7 +132,7 @@ public class FileList extends AppCompatActivity {
             if(get_size == 0)
             { show_files(new File(Environment.getExternalStorageDirectory().getPath()));}
         }
-        if(get_size == -1)
+        else
         { super.onBackPressed(); }
     }
 }
