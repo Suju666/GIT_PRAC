@@ -9,6 +9,8 @@ Name :: Sujal Balar
 
 ***** Android Version 10 required for copy and paste function *****
 
+**APK FILE** :: 
+
 ***** Images *****
 
 1. Home Screen
