@@ -1,8 +1,8 @@
 package com.suju02.android_mini_project.file_adapters;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Environment;
-import android.os.FileUtils;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -13,19 +13,18 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.suju02.android_mini_project.FileList;
-import com.suju02.android_mini_project.HomeActivity;
 import com.suju02.android_mini_project.R;
 import java.io.File;
-import java.io.FileInputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FileViewHolder>  {
+public class FilesAdapter2 extends RecyclerView.Adapter<FilesAdapter2.FileViewHolder>  {
 
     public static Context context;
     public static ArrayList<File> files_mdls;
@@ -36,8 +35,9 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FileViewHold
     public int rename_time_pos;
     public static int CNT=0;
 
-    public FilesAdapter(Context context, ArrayList<File> files_mdls) { // getting arraylist from files.java by creating object of filesadapter.java
-        this.context = context; this.files_mdls = files_mdls; last_pos = new ArrayList<>(); track_my_user_move = new ArrayList<>(); track_my_user_move.add(new File(Environment.getExternalStorageDirectory().getPath()).getPath());
+    @RequiresApi(api = Build.VERSION_CODES.R)
+    public FilesAdapter2(Context context, ArrayList<File> files_mdls) { // getting arraylist from files.java by creating object of filesadapter.java
+        this.context = context; this.files_mdls = files_mdls; last_pos = new ArrayList<>(); track_my_user_move = new ArrayList<>(); track_my_user_move.add(new File(Environment.getStorageDirectory().getPath()).getPath());
     }
 
     @Override
@@ -86,8 +86,8 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FileViewHold
                         last_pos.add(files_mdl);
                         if (track == true)
                         { track_my_user_move.add(files_mdl.getName()); Toast.makeText(context, "added"+files_mdl.getName(), Toast.LENGTH_SHORT).show();}
-                    files_mdls.clear();
-                    ShowSubFiles(files_mdl);
+                        files_mdls.clear();
+                        ShowSubFiles(files_mdl);
                     }
                     notifyDataSetChanged();
                 }
@@ -135,7 +135,7 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FileViewHold
             layout_for_padding = adaptView.findViewById(R.id.layout_for_padding);
             more_vertical_btn = adaptView.findViewById(R.id.more_vertical_btn);
             more_vertical_btn.setOnCreateContextMenuListener(this);
-            }
+        }
 
         @Override
         public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
@@ -221,7 +221,7 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FileViewHold
             tv2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    File f = new File(String.valueOf(files_mdls.get(getpos())));
+                    File f = new File(files_mdls.get(getpos()).getPath());
                     f.delete();
                     files_mdls.remove(getpos());
                     notifyDataSetChanged();

@@ -3,6 +3,7 @@ package com.suju02.android_mini_project;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import android.Manifest;
@@ -11,25 +12,33 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.Toast;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class HomeActivity extends AppCompatActivity {
 
-    public static RecyclerView rv;
-    public static String path, ex_path;
-    public static ArrayList<String> arrayList_nam;
-
+    @RequiresApi(api = Build.VERSION_CODES.R)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         getSupportActionBar().hide();
         check();
-       path = Environment.getExternalStorageDirectory().getPath();
-       ex_path = System.getenv("EXTERNAL_STORAGE");
+//       ex_path = Environment.getStorageDirectory().getPath()+"/0000-AD72";
+//        File[] get_list = this.getExternalCacheDirs();
+//        for(File f : get_list)
+//        {
+//            if(Environment.isExternalStorageRemovable(f)) {
+//                ex_path = f.getPath();//.split("/Android")[0];
+//                break;
+//            }
+//        }
+//        ex_path = Environment.getStorageDirectory().getPath();
     }
 
     public void check()
@@ -96,15 +105,13 @@ public class HomeActivity extends AppCompatActivity {
 
     public void direct_to_foldersandfiles(View v)
     {
-        Intent intnt = new Intent(this,FileList.class);
-        intnt.putExtra("path",path);
-        startActivity(intnt);
+        Intent intnt1 = new Intent(this,FileList.class);
+        startActivity(intnt1);
     }
 
     public void direct_to_foldersandfiles_external(View v)
     {
-        Intent intnt = new Intent(this,FileList.class);
-        intnt.putExtra("path",ex_path);
-        startActivity(intnt);
+        Intent intnt2 = new Intent(this,FileList2.class);
+        startActivity(intnt2);
     }
 }

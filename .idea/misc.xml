@@ -18,6 +18,7 @@
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/drawable/storage.xml" value="0.2535" />
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/activity_downlaod.xml" value="0.1" />
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/activity_file_list.xml" value="0.264" />
+        <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/activity_file_list2.xml" value="0.1" />
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/activity_home.xml" value="0.264" />
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/activity_home_screen.xml" value="0.176" />
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/activity_list_apks.xml" value="0.16974169741697417" />
@@ -27,8 +28,9 @@
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/activity_list_video.xml" value="0.24375" />
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/apk_list_item.xml" value="0.1" />
-        <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/delete_dialog.xml" value="0.24114583333333334" />
+        <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/delete_dialog.xml" value="0.6" />
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/home_screen.xml" value="0.24375" />
+        <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/name_assign_folder.xml" value="0.536" />
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/recycle_my_home_recycler.xml" value="0.264" />
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/recycler_item.xml" value="0.40524781341107874" />
         <entry key="..\:/Users/sujal/AndroidStudioProjects/Android_Mini_Prj_File_Manager/app/src/main/res/layout/rename_dialog.xml" value="0.4" />

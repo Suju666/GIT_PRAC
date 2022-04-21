@@ -13,7 +13,7 @@
         android:layout_height="100dp"
         android:background="@color/white"
         android:gravity="center"
-        android:text="Internal Storage"
+        android:text="External Storage"
         android:textColor="@color/red"
         android:textSize="32sp"
         android:textStyle="bold"
