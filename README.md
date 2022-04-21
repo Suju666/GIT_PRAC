@@ -35,9 +35,13 @@ Name :: Sujal Balar
 
 ![Apk Screen](https://user-images.githubusercontent.com/96531985/163125162-f7e143d6-c9a0-4280-8674-d0c5f88f8a69.jpeg)
 
-7. Internal Storage
-
+7.1 Internal Storage
+    
 ![Internal Storage](https://user-images.githubusercontent.com/96531985/163125326-d0261ce5-5506-48a6-bb76-f978060a3af8.jpeg)
+
+7.2 External Storage
+
+![WhatsApp Image 2022-04-22 at 12 55 38 AM](https://user-images.githubusercontent.com/96531985/164538060-7a2fb072-05b2-40c5-afc8-56d4a01940a8.jpeg)
 
 8. ContextMenu (Copy, Delete, Rename)
 
