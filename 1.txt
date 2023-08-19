@@ -1,2 +1,7 @@
 Chodo
+<<<<<<< HEAD
 Chodu
+=======
+Lomdu
+Ghalu
+>>>>>>> dj
